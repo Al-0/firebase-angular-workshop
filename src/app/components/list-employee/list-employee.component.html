@@ -14,34 +14,14 @@
                       </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                  <tr *ngFor="let employee of employees">
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.lastname}}</td>
+                    <td>{{employee.document}}</td>
+                    <td>{{employee.salary | currency:'MXN'}}</td>
                     <td>
-                        <i class="fa fa-pen-to-square text-info"></i>
-                        <i class="fa fa-trash text-warning ms-3"></i>
-                      </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                        <i class="fa fa-pen-to-square text-info"></i>
-                        <i class="fa fa-trash text-warning ms-3"></i>
-                      </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                        <i class="fa fa-pen-to-square text-info"></i>
-                        <i class="fa fa-trash text-warning ms-3"></i>
+                        <i class="fa fa-pen-to-square text-info" [routerLink]="['edit-employee', employee.idDocument]" ></i>
+                        <i class="fa fa-trash text-warning ms-3" (click)="deleteEmployee(employee.idDocument)"></i>
                       </td>
                   </tr>
                 </tbody>
